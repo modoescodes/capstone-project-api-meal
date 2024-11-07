@@ -1,0 +1,13 @@
+h1{
+    color: black;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    border-radius: 10%;
+    border-style: groove;
+}
+body{
+    background-image: linear-gradient(beige,rgba(240, 205, 130, 0.574),white);
+}
