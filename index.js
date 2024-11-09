@@ -8,11 +8,26 @@ const url="https://www.themealdb.com/api/json/v1/1/random.php";
 
 app.use (express.static("public"));
 
+
+
+
 app.get("/",async(req,res)=>{
     try{
         const result=await axios.get(url);
-        res.render("index.ejs",{data:result.data.meals[0]})
-        console.log(result.data.meals[0]);
+                // Loop through the ingredients and measures
+        const ingredients = [];
+
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = result.data.meals[0][`strIngredient${i}`];
+            const measure = result.data.meals[0][`strMeasure${i}`];
+
+        // Only push non-empty ingredients
+            if (ingredient && ingredient.trim() !== '') {
+                ingredients.push({ ingredient, measure });
+            }
+        }
+        console.log(ingredients)
+        res.render("index.ejs",{data:result.data.meals[0], ingredients:ingredients})
     } catch(err){
         res.send(err);
     }

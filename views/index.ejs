@@ -8,33 +8,39 @@
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-    <div class="container col-xxl-8 col-md-6">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div>
-                <img src=<%= data.strMealThumb %> class="" alt=<%= data.strMeal %> loading="lazy">
-            </div>
-            <div>
-                <h1 class="col-lg-6"><%= data.strMeal %></h1>
-                <p class="lead pt-2 mx-2"><%= data.strCategory %></p>
-                <p class="lead mx-2"><%= data.strArea %></p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <form action="/">
-                        <input class="btn btn-outline-info btn-lg my-4" type="submit" value="random meal 🍲">
-                    </form>
+    <div class="container col-xxl-8 col-md-10">
+        <div class="flex-container py-5">
+            <!-- Section 1 -->
+            <div class="section1 text-sm-start">
+                <div>
+                    <img src="<%= data.strMealThumb %>" alt="<%= data.strMeal %>" loading="lazy" class="img-fluid">
+                </div>
+                <div>
+                    <h4 class="mt-3"><%= data.strMeal %></h4>
+                    <li class="text pt-2 mx-2"><%= data.strCategory %></p>
+                    <li class="text mx-2"><%= data.strArea %></p>
+                    <div class="button">
+                        <form action="/">
+                            <input class="btn btn-outline-dark btn-md my-2" type="submit" value="random meal 🍲">
+                        </form>
+                    </div>
+                </div>
+                <div class="section2 text-sm-start my-4">
+                    <h4>Ingredients</h4>
+                    <% ingredients.forEach(ingredient => { %>
+                        <li><%=ingredient.ingredient %> (<%= ingredient.measure%>)</li>
+                    <%});%>
                 </div>
             </div>
-            <div class="col-10 col-sm-8 col-lg-6">
-                <h1>
-                    Instructions
-                </h1>
-                <p class="lead"><%= data.strInstructions %></p>
-    
+
+            <!-- Section 2 -->
+            <div class="section3 text-sm-start">
+                <h4>Instructions</h4>
+                <p class="text"><%= data.strInstructions %></p>
             </div>
         </div>
     </div>
-    <section>
-        
-    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

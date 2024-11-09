@@ -1,4 +1,4 @@
-h1{
+h4{
     color: black;
 }
 
@@ -9,5 +9,34 @@ img{
     border-style: groove;
 }
 body{
-    background-image: linear-gradient(beige,rgba(240, 205, 130, 0.574),white);
+    background-image:url(/images/white-paper-texture.jpg);
 }
+        /* Container to hold both sections side by side */
+        .flex-container {
+            display: flex;
+            align-items: flex-start; /* Keeps section1 at the top */
+            gap: 90px;
+        }
+
+        /* Make section1 fixed at the top */
+        .section1 {
+            flex: 1;
+            max-width: 50%; /* Adjust width as needed */
+            position: sticky;
+            top: 0; /* Keeps section1 fixed at the top */
+        }
+
+        /* Make section2 scrollable if content overflows */
+        .section2 {
+            flex: 1;
+            max-height: 40vh; /* Controls how tall section2 can be */
+            overflow-y: auto;
+        }
+        .section3 {
+            flex: 1;
+            max-height: 90vh; /* Controls how tall section2 can be */
+            overflow-y: auto;
+        }
+        .text{
+            font-size: 18px;
+        }
