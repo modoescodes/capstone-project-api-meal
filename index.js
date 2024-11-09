@@ -26,7 +26,6 @@ app.get("/",async(req,res)=>{
                 ingredients.push({ ingredient, measure });
             }
         }
-        console.log(ingredients)
         res.render("index.ejs",{data:result.data.meals[0], ingredients:ingredients})
     } catch(err){
         res.send(err);
